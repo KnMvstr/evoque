@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        .email-container {
+            background-color: #ffffff;
+            width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .header {
+            background-color: #004a99;
+            color: #ffffff;
+            padding: 10px 20px;
+            text-align: center;
+        }
+
+        .content {
+            padding: 20px;
+        }
+
+        .footer {
+            background-color: #eeeeee;
+            color: #777777;
+            padding: 10px 20px;
+            text-align: center;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+<div class="email-container">
+    <div class="header">Payment Confirmation</div>
+    <div class="content">
+        <p>Dear <span th:text="${customerFirstname}"></span> <span th:text="${customerLastname}"></span>,</p>
+        <p>Thank you for your payment. Here are the details of your transaction:</p>
+        <ul>
+            <li><strong>Ticket Reference:</strong> <span th:text="${ticketReference}"></span></li>
+            <li><strong>Amount Paid:</strong> $<span th:text="${amount}"></span></li>
+            <li><strong>Payment Method:</strong> <span th:text="${paymentMethod}"></span></li>
+            <li><strong>Email:</strong> <span th:text="${customerEmail}"></span></li>
+        </ul>
+        <p>If you have any questions or concerns regarding this transaction, please do not hesitate to contact us.</p>
+    </div>
+    <div class="footer">
+        Thank you for choosing us.<br>
+        Company Name | Contact Us | Privacy Policy
+    </div>
+</div>
+</body>
+</html>
